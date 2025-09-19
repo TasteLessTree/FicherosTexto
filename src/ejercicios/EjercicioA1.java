@@ -18,7 +18,7 @@ public class EjercicioA1 {
 
         // El bucle dentrá su ejecución cuando el usuario lo indice con "salir"
         while (true) {
-            System.out.println("\nIngrese el valor del frase o escribe \"salir\" para salir.");
+            System.out.println("\nIngrese una frase o escribe \"salir\" para salir.");
             System.out.print(">> ");
 
             String frase = sc.nextLine();
