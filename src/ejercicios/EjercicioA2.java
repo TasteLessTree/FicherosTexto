@@ -26,7 +26,7 @@ public class EjercicioA2 {
         // Nos aseguramos que el archivo exista
         while (!file.exists()) {
             System.out.println("El fichero no existe. Mostrando todos los ficheros y directorios dentro del directorio actual: ");
-            System.out.println("Recomendado: \"ejercicioA2.txt\""); // https://es.lipsum.com/feed/html
+            System.out.println("Recomendado: \"texto.txt\""); // https://es.lipsum.com/feed/html
             String[] infoDirect = directory.list();
 
             // Asegurarse que infoDirect no sea null

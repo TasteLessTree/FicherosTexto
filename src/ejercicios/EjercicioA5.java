@@ -4,17 +4,15 @@
 
 package ejercicios;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.Scanner;
 
-// Ejercicio propuesto A.4: Crea un programa que pida al usuario el nombre de un fichero de texto,
-// cuente cuántas líneas contiene, cree un array y guarde todas ellas,
-// para luego mostrarlas en pantalla en orden contrario (de la última a la primera).
-public class EjercicioA4 {
+// Ejercicio propuesto A.5: Crea un programa que pida al usuario el nombre de un fichero de texto,
+// guarde todas sus líneas en un array y las vuelque a un nuevo fichero llamado "salida.txt",
+// en orden contrario (de la última a la primera).
+public class EjercicioA5 {
     public static void main(String[] args) {
-        // Código reusado de: "EjercicioA2.java" y "EjercicioA3.java"
+        // Código reusado de: "EjercicioA4.java"
         Scanner sc = new Scanner(System.in);
 
         System.out.print("\nEscribe el nombre del archivo: ");
@@ -65,8 +63,17 @@ public class EjercicioA4 {
             throw new RuntimeException("Error al leer el archivo y modificar el array: " + e.getMessage());
         }
 
-        // Imprimir en orden inverso
-        for (int i = fileContent.length - 1; i >= 0; i--)
-            System.out.println(fileContent[i]);
+        File output = new File(directory, "salida.txt");
+
+        // Crea el archivo si no existe
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(output))) {
+            // Escribir en orden inverso
+            for (int i = fileContent.length - 1; i >= 0; i--) {
+                writer.write(fileContent[i]);
+                writer.newLine();
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Error al modificar el archivo: \"salida.txt\"" + e.getMessage());
+        }
     }
 }
